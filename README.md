@@ -84,7 +84,7 @@ aws ecs update-service \
    --service my-http-service \
    --task-definition amazon-ecs-sample  \
    --enable-execute-command 
-
+```
 * list the task definition 
 
 ```
