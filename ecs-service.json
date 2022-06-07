@@ -1,0 +1,30 @@
+{
+    "taskDefinition": "ecs-codepipeline-task:5",
+    "cluster": "ecs-fargate",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:080266302756:targetgroup/target-group-1/72dcac7c6928b604",
+            "containerName": "ecs-codepipeline-container",
+            "containerPort": 80
+        }
+    ],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "CODE_DEPLOY"
+    },
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-05a7b8127dd2136ff",
+                "subnet-07969b5f42f728745",
+                "subnet-0ae5c65c1d95eef79"
+            ],
+            "securityGroups": [
+                "sg-0cd418e391932c911"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    }
+}
