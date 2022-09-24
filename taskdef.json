@@ -2,8 +2,8 @@
     "executionRoleArn": "arn:aws:iam::080266302756:role/ecsTaskExecutionRole",
     "containerDefinitions": [
         {
-            "name": "ecs-codepipeline-container",
-            "image": "080266302756.dkr.ecr.eu-west-3.amazonaws.com/ecs-codepipeline",
+            "name": "nginx",
+            "image": "<IMAGE_NAME>",
             "essential": true,
             "portMappings": [
                 {
@@ -20,5 +20,5 @@
     "networkMode": "awsvpc",
     "cpu": "256",
     "memory": "512",
-    "family": "ecs-codepipeline-task"
+    "family": "nginx"
 }

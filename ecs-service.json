@@ -1,10 +1,10 @@
 {
-    "taskDefinition": "ecs-codepipeline-task:5",
+    "taskDefinition": "nginx:7",
     "cluster": "ecs-fargate",
     "loadBalancers": [
         {
-            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:080266302756:targetgroup/target-group-1/72dcac7c6928b604",
-            "containerName": "ecs-codepipeline-container",
+            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:080266302756:targetgroup/nginx-target/991bce14e9e067c0",
+            "containerName": "nginx",
             "containerPort": 80
         }
     ],
@@ -17,12 +17,12 @@
     "networkConfiguration": {
         "awsvpcConfiguration": {
             "subnets": [
-                "subnet-05a7b8127dd2136ff",
+                "subnet-0ae5c65c1d95eef79",
                 "subnet-07969b5f42f728745",
-                "subnet-0ae5c65c1d95eef79"
+                "subnet-05a7b8127dd2136ff"
             ],
             "securityGroups": [
-                "sg-0cd418e391932c911"
+                "sg-06fc8609f7cce7442"
             ],
             "assignPublicIp": "ENABLED"
         }
