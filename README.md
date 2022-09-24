@@ -6,11 +6,69 @@
 ```
 aws ecs register-task-definition --cli-input-json file://taskdef.json
 ```
+## create cloudmap namespace
 
+* create private cloudmap service discovery
+```
+aws servicediscovery create-private-dns-namespace \
+      --name tutorial \
+      --vpc vpc-abcd1234
+```
+1. output:
+ {
+    "OperationId": "h2qe3s6dxftvvt7riu6lfy2f6c3jlhf4-je6chs2e"
+  }
+* get the namespace id
+
+```
+aws servicediscovery get-operation \
+      --operation-id h2qe3s6dxftvvt7riu6lfy2f6c3jlhf4-je6chs2e
+```
+1. output 
+{
+    "Operation": {
+        "Id": "h2qe3s6dxftvvt7riu6lfy2f6c3jlhf4-je6chs2e",
+        "Type": "CREATE_NAMESPACE",
+        "Status": "SUCCESS",
+        "CreateDate": 1519777852.502,
+        "UpdateDate": 1519777856.086,
+        "Targets": {
+           "NAMESPACE": "ns-uejictsjen2i4eeg"
+        }
+    }
+}
+* create service 
+```
+aws servicediscovery create-service \
+      --name myapplication \
+      --dns-config "NamespaceId="ns-uejictsjen2i4eeg",DnsRecords=[{Type="A",TTL="300"}]" \
+      --health-check-custom-config FailureThreshold=1
+```
+1. output
+{
+    "Service": {
+       "Id": "srv-utcrh6wavdkggqtk",
+        "Arn": "arn:aws:servicediscovery:region:aws_account_id:service/srv-utcrh6wavdkggqtk",
+        "Name": "myapplication",
+        "DnsConfig": {
+            "NamespaceId": "ns-uejictsjen2i4eeg",
+            "DnsRecords": [
+                {
+                    "Type": "A",
+                    "TTL": 300
+                }
+            ]
+        },
+        "HealthCheckCustomConfig": {
+            "FailureThreshold": 1
+        },
+        "CreatorRequestId": "e49a8797-b735-481b-a657-b74d1d6734eb"
+    }
+}
 * create the ecs service using the below command:
 
 ```
-aws ecs create-service --service-name my-service --cli-input-json file://create-service.json
+aws ecs create-service --service-name my-service --cli-input-json file://ecs-service.json
 ```
 
 * describe a service on the ecs cluster

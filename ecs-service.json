@@ -8,6 +8,11 @@
             "containerPort": 80
         }
     ],
+    "serviceRegistries": [
+       {
+          "registryArn": "arn:aws:servicediscovery:eu-west-3:080266302756:service/srv-zmqkgozwdozxrtg4"
+       }
+    ],
     "desiredCount": 1,
     "launchType": "FARGATE",
     "schedulingStrategy": "REPLICA",
