@@ -4,7 +4,7 @@ env:
     variables:
        AWS_DEFAULT_REGION: "eu-west-3"
        AWS_ACCOUNT_ID: "080266302756"
-       ECR_REPO_URI: "080266302756.dkr.ecr.eu-west-3.amazonaws.com/ecs-codepipeline"
+       ECR_REPO_URI: "080266302756.dkr.ecr.eu-west-3.amazonaws.com/ecs_nginx"
 phases:
   pre_build:
     commands:
