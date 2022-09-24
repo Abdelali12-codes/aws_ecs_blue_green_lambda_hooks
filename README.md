@@ -149,3 +149,7 @@ aws ecs execute-command --cluster cluster-name \
     --command "/bin/sh"
 
 ```
+
+## References
+* https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html
+* https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html
