@@ -6,9 +6,9 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 COPY nginx.conf /etc/nginx/conf.d
 
-WORKDIR /app/volume
+RUN mkdir -p /app/volume
 
-COPY . .
+COPY . /app/volume
 
 VOLUME  ["/app/volume"]
 
