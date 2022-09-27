@@ -211,3 +211,6 @@ aws ecs execute-command --cluster cluster-name \
 ## References
 * https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html
 * https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html
+* https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
+* https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-example.html#appspec-file-example-ecs
+* https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html
